@@ -10,11 +10,10 @@ pattern_cc_master = re.compile(r'(51|52|53|54|55)[0-9]{2}\-[0-9]{4}\-[0-9]{4}\-[
 pattern_cc_visa = re.compile(r'(41|44|43|42)[0-9]{2}\-[0-9]{4}\-[0-9]{4}\-[0-9]{2}')
 pattern_cc_discovery = re.compile(r'600[0-9]{3}\-[0-9]{6}\-[0-9]{6}')
 
-with open('data2.txt', 'r') as f:
+with open('Your_data-file.txt', 'r') as f:
     content = f.read()
 
-'''file = open("data.txt", "r+")
-content = file.read()'''
+
 
 phone_nos = pattern_phone.finditer(content) 
 names = pattern_name.finditer(content)
@@ -25,7 +24,7 @@ master = pattern_cc_master.finditer(content)
 visa = pattern_cc_visa.finditer(content)
 discovery = pattern_cc_discovery.finditer(content)
 
-file = open('data3.txt', 'a+')
+file = open('filtered_file.txt', 'a+')
 
 
 print("*****************************************PHONE NOS*********************************************")
@@ -39,12 +38,7 @@ for match in phone_nos:
     file.write('\n')
 
 print()
-'''
-file1 = open('domains.txt', 'w+')
-for match in names:
-    matches = str(match)
-    file1.write(matches)
-    file1.write('\n')'''
+
 
 print('*******************************************NAMES**********************************************')
 file.write("*****************************************NAMES*********************************************")
@@ -110,6 +104,6 @@ for match in discovery:
     file.write('\n')
 print()
 
-#file.close()
+
 
 file.close()
